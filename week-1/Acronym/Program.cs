@@ -6,7 +6,13 @@ namespace Acronym
     {
         static void Main(string[] args)
         {
-            
+            Console.WriteLine("Enter a multi-word term:");
+            string input = Console.ReadLine();
+            string[] words = input.Split(' ');
+
+            foreach (string word in words) {
+                Console.Write(word.Substring(0, 1).ToUpper());
+            }
         }
     }
 }
