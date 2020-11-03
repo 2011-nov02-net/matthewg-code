@@ -8,6 +8,10 @@ namespace Acronym
         {
             Console.WriteLine("Enter a multi-word term:");
             string input = Console.ReadLine();
+            
+            if (input.Length < 1)
+                return;
+
             string[] words = input.Split(' ');
 
             foreach (string word in words) {
