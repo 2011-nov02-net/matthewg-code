@@ -37,9 +37,38 @@ namespace RockPaperScissors.ConsoleApp {
             // - System.Text.Json (built-in, new, fast)
             // - Newtonsoft.Json (aka JSON.NET, very popular 3rd party library)
 
-            string json = JsonSerializer.Serialize(data);
+            // For System.IO.File :
 
+            string json = JsonSerializer.Serialize(data, new JsonSerializerOptions { WriteIndented = true });
             File.WriteAllText(_filePath, json);
+
+            // For StreamWriter:
+
+            /*var writer = new StreamWriter(_filePath);
+            writer.Write(json);
+            writer.Close();*/ // need to call close or dispose on any object that contacts stuff outside the CLR (disk, network, OS calls)
+
+            // Better:
+            /*StreamWriter writer = null;
+            try {
+                writer = new StreamWriter(_filePath);
+                writer.Write(json);
+            } catch (Exception) {
+                throw;
+            } finally {
+                writer?.Close();
+            }*/
+
+            // Best:
+            /*using (var writer = new StreamWriter(_filePath)) {
+                writer.Write(json);
+            }*/
+
+            // OR
+
+            /*using var writer = new StreamWriter(_filePath);
+            writer.Write(json);*/
+
         }
     }
 }
