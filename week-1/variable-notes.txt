@@ -1,0 +1,8 @@
+reference types vs value types
+
+    value types directly store their data in a variable (for things like integer values)
+    reference types store a pointer to a memory address that holds the data (for things like objects)
+
+garbage collection:
+    provided by CLR in .NET
+    scans unused reference types to free memory to be reallocated, avoiding a stack overflow
