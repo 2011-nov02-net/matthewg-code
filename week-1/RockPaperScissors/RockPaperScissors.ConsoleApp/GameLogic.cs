@@ -10,8 +10,8 @@ namespace RockPaperScissors.ConsoleApp {
         public IElement AIElement { get; set; }
 
 
-        public GameLogic() {
-            Scores = new ScoreTracker();
+        public GameLogic(JsonFilePersistence persistence) {
+            Scores = persistence.Read();
         }
 
         public string result() {

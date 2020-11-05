@@ -4,8 +4,10 @@ using System;
 namespace RockPaperScissors.ConsoleApp {
     class Program {
         static void Main(string[] args) {
-
-            var game = new GameLogic();
+            // in a .NET program, paths will be relative to the location of the application dll (usually down in bin/debug/etc)
+            string filePath = "../../../data.json"; // should be next to this file
+            var persistence = new JsonFilePersistence(filePath);
+            var game = new GameLogic(persistence);
 
             // Loops game until user quits
             while (true) {
@@ -17,6 +19,7 @@ namespace RockPaperScissors.ConsoleApp {
 
                 if (input.Equals("q", StringComparison.OrdinalIgnoreCase)) { // quit game if user entered Q
                     Console.WriteLine("Exiting Game.");
+                    persistence.Write(game.Scores);
                     return;
                 } else {                                                    // otherwise assign player an element object
                     game.PlayerElement = ReadPlayerChoice(input);
@@ -25,7 +28,6 @@ namespace RockPaperScissors.ConsoleApp {
                 Console.WriteLine(game.result());
                 Console.Write($"\nScore:\nYou: {game.Scores.PlayerScore}\nAI: {game.Scores.AIScore}\nDraws: {game.Scores.Draws}\n\n");
             }
-
 
         }
 
