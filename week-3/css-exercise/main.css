@@ -1,0 +1,10 @@
+body {
+    background-color: lightgoldenrodyellow;
+    border: solid red;
+    padding-left: 0.5em;
+}
+img {
+    border: 0.5em solid orange;
+    width: 350px;
+    height: 125px;
+}
