@@ -9,8 +9,7 @@ namespace SimpleOrderApp.WebApp.ViewModels
     public class LocationViewModel
     {
         [Display(Name = "Location Name")]
-        [RegularExpression("^[A-Z][a-zA-Z]*$")]
-        [Required]
+        [Required, RegularExpression("[A-Z].*")]
         public string Name { get; set; }
 
         [Range(0, 99999)]
