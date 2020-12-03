@@ -22,6 +22,7 @@ pool:
 
 # variables common to multiple steps
 variables:
+  sdkVersion: 3.1.x
   buildConfiguration: Release
 
 # these steps are run in sequence by the build agent,
@@ -31,10 +32,10 @@ variables:
 # the two most common types of steps are "script" and "task"
 steps:
 - task: UseDotNet@2
-  displayName: 'Use .NET 5 SDK'
+  displayName: 'Use .NET $(sdkVersion) SDK'
   inputs:
     packageType: 'sdk'
-    version: '3.1.x'
+    version: $(sdkVersion)
 
 - script: dotnet build --configuration $(buildConfiguration)
   displayName: dotnet build
@@ -47,3 +48,16 @@ steps:
     arguments: '--configuration $(buildConfiguration)'
     publishTestResults: true
     workingDirectory: 'week-3/SimpleOrderApp'
+
+#- script: dotnet publish --configuration $(buildConfiguration) --output publish
+#  displayName: dotnet publish
+#  workingDirectory: week-3/SimpleOrderApp
+
+#- task: AzureRmWebAppDeployment@4
+#  displayName: azure app service deploy
+#  inputs:
+#    ConnectionType: 'AzureRM'
+#    azureSubscription: 'Azure subscription 1(7661b4a7-b474-45ce-b07e-9c051aac7045)'
+#    appType: 'webApp'
+#    WebAppName: '2011-goodman-store-app'
+#    packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
