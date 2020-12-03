@@ -29,3 +29,7 @@ steps:
 - script: dotnet build --configuration $(buildConfiguration)
   displayName: dotnet build
   workingDirectory: week-3/SimpleOrderApp
+
+- script: dotnet test --configuration $(buildConfiguration)
+  displayName: Run unit tests
+  workingDirectory: week-3/SimpleOrderApp
