@@ -1,0 +1,52 @@
+Software Development Lifecycle
+- Waterfall
+    > Rigid process structure
+        1. Requirements
+        2. Design
+        3. Builde/code
+        4. Test
+        5. Deploy/Release
+- V-model
+    > Waterfall, but more emphasis on testing
+- Spiral model
+    > Several waterfalls, expecting to repeat the process multiple times throughout the development of an application
+
+
+- Agile methodology
+    > Continually seek user feedback and feed it back in to development
+    > split up our requirements into relatively independent user stories and each one can be worked on in parallel
+    > speed over careful planning & documentation
+    > everyone involved in the project communicating frequently
+    > dev team self-evaluation
+
+- Scrum
+    > define each iteration as a "sprint"
+        * sprint lasts 2-6 weeks
+        * every sprint begins with a planning meeting
+            :: we decide which 'user stories' we're going to table before the end of the sprint. this is the sprint backlog
+            :: "capacity" is the estimated number of points we can complete
+            :: involves estimating how much effort each user story will take
+                # we often use a point system (1,2,3, roughly up to 8 points)
+        * during the sprint
+            :: each user story will be tracked on a project board aka 'scrum board'. it will move form 'not started' through design, build, test, deploy, independently of other stories
+            :: daily 'standup' meetings
+                # each person says 3 things
+                    1. what they did in past day
+                    2. what they will do this next day
+                    3. blockers to #2
+            :: the standup meetings and scrum board are managed by the 'scrum master'
+        * at the end of the sprint, we have the 'sprint retrospective'/review
+            :: "velocity" is how many points were completed
+- Kanban
+    > no sprints
+    > more ambitious in moving further from waterfall
+    > continuous planning
+    > continuous coding
+    > continuous evaluating and adapting
+    > kanban board (project board)
+    > kanban focuses on likmiting work in progress to handle bottlenecks before they occur
+- CMMI (Capability Maturity Model Integration)
+    > very process-heavy
+    > several different "levels"
+    > Agile + extra accountability
+    > documentation, standardization, etc.
