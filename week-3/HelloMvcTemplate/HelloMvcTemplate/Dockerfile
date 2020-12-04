@@ -16,8 +16,6 @@ COPY . ./
 # this runs during "docker build"
 RUN dotnet publish -o publish
 
-FROM mcr.microsoft.com/dotnet/aspnet:5.0
-
 # configure it with the command it will use to start containers
 # this runs at the start of "docker run"
 ENTRYPOINT ["dotnet", "publish/HelloMvcTemplate.dll"]
